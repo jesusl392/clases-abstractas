@@ -1,9 +1,9 @@
-abstract class Celular extends Producto{
+public class Celular extends Producto implements Vendible{
     protected int cBateria;
     protected String resolucion;
 
-    public Celular(String nombre, String marca, int precio, int cBateria, String resolucion) {
-        super(nombre, marca, precio);
+    public Celular(String nombre, String marca, int precio, int cBateria, String resolucion, int cantidad) {
+        super(nombre, marca, precio,cantidad);
         this.cBateria = cBateria;
         this.resolucion = resolucion;
     }
@@ -33,5 +33,15 @@ abstract class Celular extends Producto{
                 ", marca='" + marca + '\'' +
                 ", precio=" + precio +
                 '}';
+    }
+
+    @Override
+    public void mostrarDetalles() {
+
+    }
+
+    @Override
+    public double calcularPrecioVenta(int cantidad) {
+        return 0;
     }
 }

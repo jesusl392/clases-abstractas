@@ -1,38 +1,35 @@
-abstract class Producto {
+public abstract class Producto {
     protected String nombre;
     protected String marca;
-    protected int precio;
+    protected double precio;
+    protected int cantidad;
 
-    public Producto(String nombre, String marca, int precio) {
+    public Producto(String nombre, String marca, double precio, int cantidad) {
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
+        this.cantidad = cantidad;
     }
 
-    public abstract void detalles();
+    public abstract void mostrarDetalles();
+
+    public boolean actualizarStock(int cantidadVendida) {
+        if (cantidadVendida <= cantidad) {
+            cantidad -= cantidadVendida;
+            return true;
+        }
+        return false;
+    }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public int getCantidad() {
+        return cantidad;
     }
-
 }
